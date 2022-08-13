@@ -7,13 +7,11 @@ int main() {
 
     string result = "NG";
 
-    if (b > k) {
-        for (int i = 1; i * k < b; ++i) {
-            if (i * k >= a && i * k <= b) {
-                result = "OK";
-            }
+    for (int i = a; i <= b; ++i) {
+        if (i % k == 0) {
+            result = "OK";
         }
     }
-    
+
     cout << result << endl;
 }
