@@ -10,15 +10,16 @@ int main() {
     int result;
     
     for (int i = 1; i <= n; ++i) {
-        int sum = 0;
-        int digits = to_string(i).size(); 
-        for (int k = 1; k <= digits; ++k) {
-            sum += i / (10 * (k - 1)) % 10;
+        int sum_digit = 0;
+        int k = i;
+        while (k > 0) {
+            sum_digit += k % 10;
+            k /= 10;
         }
-        if (sum >= a && sum <= b) {
+
+        if (sum_digit >= a && sum_digit <= b) {
             result += i;
         }
-        sum = 0;
     }
 
     cout << result << endl;
