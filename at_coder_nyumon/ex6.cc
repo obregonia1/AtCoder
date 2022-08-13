@@ -2,6 +2,19 @@
 #include <vector>
 using namespace std;
 
+int how_many_times(int num) {
+    int counter = 0;
+
+    while (num % 2 == 0) {
+        num /= 2;
+
+        ++counter;
+    }
+    return counter;
+}
+
+constexpr int INF = 1 << 30;
+
 int main() {
     int n;
     cin >> n;
@@ -12,25 +25,13 @@ int main() {
         cin >> A;
     }
 
-    int time = 0;
-    
-    bool flag = true;
+    int result = INF;
 
-    while (true) {
-        for (int i = 0; i < n; ++i) {
-            if (a[i] % 2 == 1) {
-                flag = false;
-            } else {
-                a[i] /= 2;
-                continue;
-            }
-        }
+    for (auto A : a) {
+        int counter = how_many_times(A);
 
-        if (flag == false) {
-            break;
-        }
-        ++time;
+        result = min(result, counter);
     }
-    cout << time << endl;
-}
 
+    cout << result << endl;
+}
