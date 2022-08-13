@@ -1,23 +1,26 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
+
+int calc_sum_digits(int n) {
+    int sum_digit = 0;
+    while (n > 0) {
+        sum_digit += n % 10;
+        n /= 10;
+    }
+    return sum_digit;
+}
 
 int main() {
     int n, a, b;
     cin >> n >> a >> b;
 
-    int result;
+    int result = 0;
     
     for (int i = 1; i <= n; ++i) {
-        int sum_digit = 0;
-        int k = i;
-        while (k > 0) {
-            sum_digit += k % 10;
-            k /= 10;
-        }
+        int x = calc_sum_digits(i);
 
-        if (sum_digit >= a && sum_digit <= b) {
+        if (x >= a && x <= b) {
             result += i;
         }
     }
