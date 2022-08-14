@@ -9,26 +9,21 @@ int main() {
 
     vector<int> a(n);
 
-    for (auto& A : a) {
-        cin >> A;
+    for (auto& ai: a) {
+        cin >> ai;
     }
-
-    int alice;
-    int bob;
 
     sort(a.begin(), a.end(), greater<int>{});
 
-    string player = "alice";
-
-    for (auto& A : a) {
-        if (player == "alice") {
-            alice += A;
-            player = "bob";
-        } else {
-            bob += A;
-            player = "alice";
-        }
+    int result = 0;
+    for (int i = 0; i < n; ++i) {
+        if (i % 2 == 0) {
+             result += a[i]; 
+             }
+        else {
+             result -= a[i]; 
+             }
     }
 
-    cout << alice - bob << endl;
+    cout << result << endl;
 }
