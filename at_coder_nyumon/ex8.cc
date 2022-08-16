@@ -1,33 +1,36 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
+
+bool isAC(string s) {
+    if (s[0] != 'A') { return false; }
+
+    int count = 0;
+    int index = 0;
+    for (int i = 2; i +1 < s.size(); ++i) {
+        if (i >= 2 && i != s.size() && s[i] == 'C') {
+            ++count;
+        }
+    }
+    if (count != 1) {
+        return false;
+    }
+
+    int num_big = 0;
+    for (auto c : s) {
+        if (isupper(c)) {
+            ++num_big;
+        }
+    }
+    if (num_big != 2) { return false; }
+
+    return true;
+}
 
 int main() {
     string s;
     cin >> s;
 
-    string result = "AC";
-    
-    if (s[0] != 'A') { result = "WC"; }
-    
-    int count = 0;
-    int index = 0;
-    for (int i = 0; i <= s.size(); ++i) {
-        if (i >= 2 && i != s.size() && s[i] == 'C') {
-            ++count;
-            index =i;
-        }
-    }
-    if (count >= 2 || count == 0) {
-        result = "WC";
-    }
-
-    for (int i = 1; i <= s.size(); ++i) {
-        if (i != index && isupper(s[i])) {
-            result = "WC";
-        }
-    }
-
-    cout << result << endl;
+    if (isAC(s)) { cout << "AC" << endl; }
+    else { cout << "WA" << endl; }
 }
