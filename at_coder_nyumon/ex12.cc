@@ -1,27 +1,19 @@
 #include <iostream>
-#include <vector>
+#include <set>
 
 using namespace std;
-
-int m = 101;
 
 int main() {
   int n;
   cin >> n;
 
-  vector<int> exist(m, 0);
+  set<int> s;
 
   for (int i = 0; i < n; ++i) {
     int d;
     cin >> d;
-
-    exist[d] = 1;
+    s.insert(d);
   }
 
-  int result = 0;
-  for (auto val : exist) {
-    result += val;
-  }
-
-  cout << result << endl;
+  cout << s.size() << endl;
 }
