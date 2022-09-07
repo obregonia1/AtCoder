@@ -6,18 +6,9 @@ int main() {
   int a, b, c, k;
   cin >> a >> b >> c >> k;
 
-  rep(i, k) {
-    int aa, bb, cc;
-    aa = b + c;
-    bb = a + c;
-    cc = a + b;
-    a = aa;
-    b = bb;
-    c = cc;
+  if (k % 2 == 0) {
+    cout << a - b  << endl;
+  } else {
+    cout << b - a << endl;
   }
-
-  int result;
-  result = a - b;
-  if (result > 1e18) cout << "Unfair\n";
-  else cout << result << endl;
 }
