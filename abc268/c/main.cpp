@@ -13,27 +13,15 @@ int findIndex(vector<int> arr, int item) {
 int main() {
   int n;
   cin >> n;
-
-  vector<int> h(n);
-  rep(i, n) h[i] = i;
-
   vector<int> p(n);
-
+  rep(i, n) cin >> p[i];
+  vector<int> cnt(n);
   rep(i, n) {
-    cin >> p[i];
+    int j = (p[i] - i + n) % n;
+    rep(k, 3) cnt[(j + k) % n]++;
   }
-
-  int result = 0;
-  int count = 0;
-  rep(i, n) {
-    for (auto hi : h) hi += i;
-    for (auto pi : p) {
-      int index = findIndex(h, pi);
-      if (pi == 0) ++count;
-      else if (((index - 1) % pi == 0) || ((index + 1) % pi == 0) || index == pi) ++count;
-    }
-    result = max(result, count);
-    count = 0;
-  }
-  cout << result << endl;
+  int ans = 0;
+  rep(i, n) ans = max(ans, cnt[i]);
+  cout << ans << endl;
+  return 0;
 }
