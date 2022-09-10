@@ -1,3 +1,6 @@
 a.out
 test.cc
 main
+tests/
+.vscode/
+contest.acc.json
