@@ -7,7 +7,7 @@ int main() {
   cin >> n >> x;
   int count = 0;
   int position = 0;
-  rep(i, n) {
+  rep(i, n + 1) {
     int l;
     cin >> l;
     if (position <= x) count++;
