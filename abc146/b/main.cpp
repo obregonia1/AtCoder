@@ -8,8 +8,9 @@ int main() {
   cin >> n >> s;
   string result = "";
   for (auto& si : s) {
-    if (isupper(si + n)) result += si + n;
-    else result += si + n - 26;
+    int x = si - 'A';
+    x = (x + n) % 26;
+    result += 'A' + x;
   }
   cout << result << endl;
 }
