@@ -27,7 +27,7 @@ int main() {
     rep(i, 0, 3) rep(j, 0, 3) if (a[i] + b[j] != c[i][j]) ok = 0;
     if (ok) {
       cout << "Yes" << endl;
-      return 1;
+      return 0;
     }
   }
   cout << "No" << endl;
