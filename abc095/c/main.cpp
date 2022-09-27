@@ -6,9 +6,13 @@ int main() {
   int a, b, c, x, y;
   cin >> a >> b >> c >> x >> y;
   int result = 1e9;
-  rep(i, 0, x + 1) rep(j, 0, y + 1) {
-    int k = max(x - i, y - j) * 2;
-      result = min(result, i * a + j * b + k * c);
+  rep(i, 0, 200001) {
+    int price = i * c;
+    int xi = floor(x - i / 2);
+    int yi = floor(y - i / 2);
+    if (xi > 0) price += xi * a;
+    if (yi > 0) price += yi * b;
+    result = min(result, price);
   }
      
   cout << result << endl;
