@@ -20,11 +20,5 @@ int main() {
   for(auto& si : s) {
     if (si.second == ma) vec.push_back(si.first);
   }
-  sort(vec.begin(), vec.end());
   for (auto& vi : vec) cout << vi << endl;
-  
-  // cout << si.first << si.second << endl;
-
-  
-  // cout << result << endl;
 }
