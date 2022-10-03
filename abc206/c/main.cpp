@@ -3,13 +3,15 @@ using namespace std;
 #define rep(i, a, b) for (int i = a; i < (b); ++i)
 
 int main() {
-  int n;
+  long long n;
   cin >> n;
-  int a[n];
-  for(auto& ai : a) cin >> ai;
-  int result = 0;
-  rep(i, 0, n) rep(j, i + 1, n) {
-    if (a[i] != a[j]) result++;
+  int a[300000];
+  rep(i, 0, n) cin >> a[i];
+  map<int, int> mp;
+  long long result = 0;
+  rep(j, 0, n) {
+    result += j - mp[a[j]];
+    mp[a[j]]++;
   }
   
   cout << result << endl;
