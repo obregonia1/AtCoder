@@ -5,15 +5,14 @@ using namespace std;
 int main() {
   int n;
   cin >> n;
-  int a[n];
-  for(auto& ai : a) cin >> ai;
-  map<int, int> mp;
-  for(auto& ai : a) {
-    mp[ai % 200]++; 
-  }
+  int a[201010];
+  rep(i, 0, n) cin >> a[i];
+  int count[202];
   long long result = 0;
-  for(auto& mi : mp) {
-    result += mi.second * (mi.second - 1) / 2;
+  rep(i, 0, n) {
+    int mo = a[i] % 200;
+    result += count[mo];
+    count[mo]++;
   }
   
   cout << result << endl;
