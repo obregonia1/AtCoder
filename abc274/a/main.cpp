@@ -5,13 +5,8 @@ using namespace std;
 int main() {
   double a, b;
   cin >> a >> b;
-  double result = (b / a) * pow(10, 3);
-  result = round(result);
-  result /= pow(10, 3);
-  
-  printf("%03.3f", result);
-  printf("\n");
-  // cout << setprecision(4) << result << endl;
-  // cout << result << endl;
+  double x = 1.*b/a;
+  printf("%.3f\n", x);
+  return 0;
 }
 
